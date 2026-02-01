@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Question 💝</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ff6b9d 0%, #c06c84 50%, #f67280 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 60px 40px;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #ff4757;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .heart {
+            font-size: 3em;
+            margin: 20px 0;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .question {
+            font-size: 1.8em;
+            color: #2d3436;
+            margin: 30px 0;
+            font-weight: 600;
+        }
+
+        .name {
+            color: #ff6b9d;
+            font-weight: bold;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 40px 0 20px 0;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 15px 40px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .yes-btn {
+            background: linear-gradient(135deg, #ff6b9d, #ff4757);
+            color: white;
+            box-shadow: 0 5px 15px rgba(255, 71, 87, 0.4);
+        }
+
+        .yes-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 71, 87, 0.6);
+        }
+
+        .no-btn {
+            background: #dfe6e9;
+            color: #b2bec3;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        .asterisk {
+            color: #ff4757;
+            font-weight: bold;
+        }
+
+        .footnote {
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #636e72;
+            font-style: italic;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 40px 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .question {
+                font-size: 1.4em;
+            }
+
+            button {
+                padding: 12px 30px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💝 Hey Girl! 💝</h1>
+        <div class="heart">❤️</div>
+        <div class="question">
+            Will you be my valentine, <span class="name">Zeida</span>?
+        </div>
+        
+        <div class="buttons">
+            <button class="yes-btn" onclick="handleYes()">Yes! 💕</button>
+            <button class="no-btn" disabled>No<span class="asterisk">*</span></button>
+        </div>
+        
+        <div class="footnote">
+            <span class="asterisk">*</span> not a real option
+        </div>
+    </div>
+
+    <script>
+        function handleYes() {
+            // Redirect to Michael Jackson's "Rock With You" on YouTube
+            window.location.href = 'https://www.youtube.com/watch?v=5X-Mrc2l1d0';
+        }
+    </script>
+</body>
+</html>
