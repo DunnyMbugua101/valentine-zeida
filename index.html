@@ -107,12 +107,10 @@
             padding: 40px 20px;
             font-size: 1.4em;
         }
-        .heart { color: #ff6b9d; }
     </style>
 </head>
 <body>
     <div class="container" id="issueContainer">
-        <!-- Header -->
         <header>
             <span class="issue-title">[BUG] Zeida keeps breaking my focus</span>
             <span class="issue-number">#1</span>
@@ -126,10 +124,9 @@
 
         <div class="main-content" id="mainContent">
             <div class="meta">
-                <strong>Cash</strong> opened this issue • just now • 1 comment
+                <strong>Dun</strong> opened this issue • just now • 1 comment
             </div>
 
-            <!-- Updated Description (line removed) -->
             <div class="description">
                 <h2>Describe the bug</h2>
                 <p>Every time I'm deep in work — debugging, writing features, or fixing that one annoying edge case — my brain randomly renders thoughts of <strong>Zeida</strong>.</p>
@@ -149,8 +146,8 @@
 
             <div class="comment">
                 <div style="margin-bottom: 16px;">
-                    <span class="avatar">C</span>
-                    <strong>Cash</strong> <span style="color:#8b949e;">• just now</span>
+                    <span class="avatar">D</span>
+                    <strong>Dun</strong> <span style="color:#8b949e;">• just now</span>
                 </div>
                 <p>Status update: Still thinking about you while coding.<br>
                 This issue will probably never be fixed.</p>
@@ -180,12 +177,11 @@
             else if (clickCount === 3) {
                 alert("❤️ Third attempt successful!\n\nIssue closed with love.\n\nThank you for being the best distraction in my life, Zeida 💕");
 
-                // Close the page visually
                 container.innerHTML = `
                     <div class="closed">
                         <h2>✅ Issue #1 Closed</h2>
                         <p style="margin: 20px 0; font-size: 1.1em;">
-                            Closed by Cash with maximum happiness<br><br>
+                            Closed by Dun with maximum happiness<br><br>
                             Status: <strong>Won't Fix — Because I like this bug too much</strong> ❤️
                         </p>
                         <p style="margin-top: 30px; opacity: 0.9;">
@@ -194,7 +190,6 @@
                     </div>
                 `;
                 
-                // Fade out the whole page after 4 seconds
                 setTimeout(() => {
                     document.body.style.opacity = "0";
                 }, 4000);
