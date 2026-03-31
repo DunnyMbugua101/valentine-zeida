@@ -12,6 +12,7 @@
             color: #c9d1d9;
             line-height: 1.6;
             padding: 20px;
+            transition: opacity 1.2s ease;
         }
         .container {
             max-width: 780px;
@@ -37,7 +38,6 @@
         }
         .issue-number {
             color: #8b949e;
-            font-weight: 400;
         }
         .labels {
             display: flex;
@@ -65,16 +65,12 @@
             padding: 24px;
             margin-bottom: 30px;
         }
-        .description h2 {
-            color: #58a6ff;
-            margin-bottom: 16px;
-        }
         .comment {
             background: #161b22;
             border: 1px solid #30363d;
             border-radius: 8px;
             padding: 20px;
-            margin-top: 30px;
+            margin-top: 25px;
         }
         .avatar {
             width: 40px;
@@ -93,22 +89,29 @@
             background: #238636;
             color: white;
             border: none;
-            padding: 10px 24px;
+            padding: 12px 28px;
             border-radius: 6px;
             font-weight: 600;
             cursor: pointer;
-            margin-top: 20px;
+            margin-top: 25px;
             transition: all 0.3s;
         }
         button:hover {
             background: #2ea043;
             transform: translateY(-2px);
         }
+        .closed {
+            background: #238636;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 1.4em;
+        }
         .heart { color: #ff6b9d; }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="issueContainer">
         <!-- Header -->
         <header>
             <span class="issue-title">[BUG] Zeida keeps breaking my focus</span>
@@ -121,12 +124,11 @@
             </div>
         </header>
 
-        <div class="main-content">
+        <div class="main-content" id="mainContent">
             <div class="meta">
                 <strong>Cash</strong> opened this issue • just now • 1 comment
             </div>
 
-            <!-- Main Description -->
             <div class="description">
                 <h2>Describe the bug</h2>
                 <p>Every time I'm deep in work — debugging, writing features, or fixing that one annoying edge case — my brain randomly renders thoughts of <strong>Zeida</strong>.</p>
@@ -149,7 +151,6 @@
                 </p>
             </div>
 
-            <!-- Your Comment -->
             <div class="comment">
                 <div style="margin-bottom: 16px;">
                     <span class="avatar">C</span>
@@ -159,23 +160,50 @@
                 This issue will probably never be fixed.</p>
             </div>
 
-            <button onclick="closeIssue()">Close this issue (with a smile)</button>
+            <button id="closeBtn" onclick="attemptClose()">Close this issue (with a smile)</button>
         </div>
     </div>
 
     <script>
-        function closeIssue() {
-            const messages = [
-                "❤️ Issue closed with maximum happiness!",
-                "You just made my entire sprint better 💕",
-                "Now I can finally focus... or maybe not 😉"
-            ];
-            const random = messages[Math.floor(Math.random() * messages.length)];
-            
-            alert(random);
-            
-            // Optional: change to a song you like
-            // window.location.href = "https://www.youtube.com/watch?v=nn_uxWW7w0s";
+        let clickCount = 0;
+
+        function attemptClose() {
+            clickCount++;
+
+            const btn = document.getElementById('closeBtn');
+            const container = document.getElementById('issueContainer');
+
+            if (clickCount === 1) {
+                alert("❤️ First attempt...\n\nI'm not sure if this is a problem we can close...");
+                btn.textContent = "Try closing again 💕";
+            } 
+            else if (clickCount === 2) {
+                alert("❤️ Second attempt...\n\nStill not sure... This bug is pretty stubborn 😌");
+                btn.textContent = "One more try?";
+            } 
+            else if (clickCount === 3) {
+                // Final sweet message
+                alert("❤️ Third attempt successful!\n\nIssue closed with love.\n\nThank you for being the best distraction in my life, Zeida 💕");
+
+                // Close the page visually
+                container.innerHTML = `
+                    <div class="closed">
+                        <h2>✅ Issue #1 Closed</h2>
+                        <p style="margin: 20px 0; font-size: 1.1em;">
+                            Closed by Cash with maximum happiness<br><br>
+                            Status: <strong>Won't Fix — Because I like this bug too much</strong> ❤️
+                        </p>
+                        <p style="margin-top: 30px; opacity: 0.9;">
+                            Made while thinking about you in Nairobi
+                        </p>
+                    </div>
+                `;
+                
+                // Fade out the whole page after 4 seconds
+                setTimeout(() => {
+                    document.body.style.opacity = "0";
+                }, 4000);
+            }
         }
     </script>
 </body>
