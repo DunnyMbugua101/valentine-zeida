@@ -3,171 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Just for you Baby! </title>
+    <title>[BUG] Zeida keeps breaking my focus · Issue #1</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #ff6b9d 0%, #c06c84 50%, #f67280 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0d1117;
+            color: #c9d1d9;
+            line-height: 1.6;
             padding: 20px;
         }
-
         .container {
-            background: white;
-            padding: 60px 40px;
-            border-radius: 30px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            text-align: center;
-            max-width: 500px;
-            width: 100%;
-            animation: fadeIn 1s ease-in;
+            max-width: 780px;
+            margin: 0 auto;
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            overflow: hidden;
         }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        h1 {
-            color: #ff4757;
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .heart {
-            font-size: 3em;
-            margin: 20px 0;
-            animation: heartbeat 1.5s infinite;
-        }
-
-        @keyframes heartbeat {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
-            }
-        }
-
-        .question {
-            font-size: 1.8em;
-            color: #2d3436;
-            margin: 30px 0;
-            font-weight: 600;
-        }
-
-        .name {
-            color: #ff6b9d;
-            font-weight: bold;
-        }
-
-        .buttons {
+        header {
+            background: #21262d;
+            padding: 16px 24px;
+            border-bottom: 1px solid #30363d;
             display: flex;
-            gap: 20px;
-            justify-content: center;
-            margin: 40px 0 20px 0;
+            align-items: center;
+            gap: 12px;
             flex-wrap: wrap;
         }
-
-        button {
-            padding: 15px 40px;
-            font-size: 1.2em;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: bold;
-            position: relative;
+        .issue-title {
+            font-size: 1.5em;
+            font-weight: 600;
+            color: #58a6ff;
         }
-
-        .yes-btn {
-            background: linear-gradient(135deg, #ff6b9d, #ff4757);
-            color: white;
-            box-shadow: 0 5px 15px rgba(255, 71, 87, 0.4);
+        .issue-number {
+            color: #8b949e;
+            font-weight: 400;
         }
-
-        .yes-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 71, 87, 0.6);
+        .labels {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
         }
-
-        .no-btn {
-            background: #dfe6e9;
-            color: #b2bec3;
-            cursor: not-allowed;
-            box-shadow: none;
+        .label {
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
         }
-
-        .asterisk {
-            color: #ff4757;
-            font-weight: bold;
+        .main-content {
+            padding: 24px;
         }
-
-        .footnote {
+        .meta {
+            color: #8b949e;
+            font-size: 0.95em;
+            margin-bottom: 20px;
+        }
+        .description {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 30px;
+        }
+        .description h2 {
+            color: #58a6ff;
+            margin-bottom: 16px;
+        }
+        .comment {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 20px;
             margin-top: 30px;
-            font-size: 0.9em;
-            color: #636e72;
-            font-style: italic;
         }
-
-        @media (max-width: 600px) {
-            .container {
-                padding: 40px 20px;
-            }
-
-            h1 {
-                font-size: 2em;
-            }
-
-            .question {
-                font-size: 1.4em;
-            }
-
-            button {
-                padding: 12px 30px;
-                font-size: 1em;
-            }
+        .avatar {
+            width: 40px;
+            height: 40px;
+            background: #ff6b9d;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            float: left;
+            margin-right: 16px;
         }
+        button {
+            background: #238636;
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+        button:hover {
+            background: #2ea043;
+            transform: translateY(-2px);
+        }
+        .heart { color: #ff6b9d; }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>💝 Hey Girl! 💝</h1>
-        <div class="heart">❤️</div>
-        <div class="question">
-            Will you be my valentine, <span class="name">Zeida</span>?
-        </div>
-        
-        <div class="buttons">
-            <button class="yes-btn" onclick="handleYes()">Yes! 💕</button>
-            <button class="no-btn" disabled>No<span class="asterisk">*</span></button>
-        </div>
-        
-        <div class="footnote">
-            <span class="asterisk">*</span> not a real option
+        <!-- Header -->
+        <header>
+            <span class="issue-title">[BUG] Zeida keeps breaking my focus</span>
+            <span class="issue-number">#1</span>
+            <div class="labels">
+                <span class="label" style="background:#f85149; color:white;">bug</span>
+                <span class="label" style="background:#d299ff; color:#0d1117;">distraction</span>
+                <span class="label" style="background:#ff6b9d; color:white;">priority: high</span>
+                <span class="label" style="background:#39c5bb; color:#0d1117;">wontfix ❤️</span>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="meta">
+                <strong>Cash</strong> opened this issue • just now • 1 comment
+            </div>
+
+            <!-- Main Description -->
+            <div class="description">
+                <h2>Describe the bug</h2>
+                <p>Every time I'm deep in work — debugging, writing features, or fixing that one annoying edge case — my brain randomly renders thoughts of <strong>Zeida</strong>.</p>
+                
+                <p>Expected behavior: 100% focus on code.<br>
+                Actual behavior: 60% code, 40% thinking about her smile, her voice, or what she's doing right now.</p>
+                
+                <p>This "bug" has been occurring consistently since I met her. It gets worse at night when I'm coding in Nairobi.</p>
+                
+                <p><strong>Steps to reproduce:</strong></p>
+                <ol>
+                    <li>Open laptop</li>
+                    <li>Start working</li>
+                    <li>Think about Zeida (happens automatically)</li>
+                </ol>
+                
+                <p style="margin-top: 25px; font-size: 1.1em;">
+                    Zeida, even when I'm supposed to be focused on work...<br>
+                    you're the most beautiful distraction in my codebase. ❤️
+                </p>
+            </div>
+
+            <!-- Your Comment -->
+            <div class="comment">
+                <div style="margin-bottom: 16px;">
+                    <span class="avatar">C</span>
+                    <strong>Cash</strong> <span style="color:#8b949e;">• just now</span>
+                </div>
+                <p>Status update: Still thinking about you while coding.<br>
+                This issue will probably never be fixed.</p>
+            </div>
+
+            <button onclick="closeIssue()">Close this issue (with a smile)</button>
         </div>
     </div>
 
     <script>
-        function handleYes() {
-            // Redirect to Michael Jackson's "Rock With You" on YouTube
-            window.location.href = 'https://www.youtube.com/watch?v=nn_uxWW7w0s';
+        function closeIssue() {
+            const messages = [
+                "❤️ Issue closed with maximum happiness!",
+                "You just made my entire sprint better 💕",
+                "Now I can finally focus... or maybe not 😉"
+            ];
+            const random = messages[Math.floor(Math.random() * messages.length)];
+            
+            alert(random);
+            
+            // Optional: change to a song you like
+            // window.location.href = "https://www.youtube.com/watch?v=nn_uxWW7w0s";
         }
     </script>
 </body>
